@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+data/demo-state.json
+data/evidence
+artifacts/*.json

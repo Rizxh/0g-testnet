@@ -1,0 +1,36 @@
+{
+  "name": "0g-test",
+  "version": "1.0.0",
+  "description": "SafeTrack 0G full-stack reference app with frontend, backend, AI, data anchoring, and smart-contract validation flows.",
+  "main": "dist/src/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc --project tsconfig.json",
+    "start": "node dist/src/server.js",
+    "compile:contract": "tsx scripts/compile-contract.ts",
+    "probe:mainnet": "tsx scripts/probe-mainnet.ts",
+    "deploy:mainnet": "tsx scripts/deploy-mainnet.ts",
+    "reset:demo": "tsx scripts/reset-demo.ts",
+    "check": "npm run compile:contract && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@0gfoundation/0g-ts-sdk": "^1.2.1",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.13.1",
+    "express": "^5.2.1",
+    "openai": "^6.34.0",
+    "viem": "^2.48.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "solc": "^0.8.34",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}

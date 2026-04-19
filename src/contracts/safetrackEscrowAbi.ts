@@ -1,0 +1,70 @@
+export const safeTrackEscrowAbi = [
+  {
+    type: "function",
+    name: "registerShipment",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "shipmentId", type: "string" },
+      { name: "consignee", type: "address" },
+      { name: "riskThresholdBps", type: "uint16" },
+    ],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "syncTelemetry",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "shipmentId", type: "string" },
+      { name: "latestGForceMilli", type: "uint256" },
+      { name: "riskScoreBps", type: "uint16" },
+      { name: "tamperDetected", type: "bool" },
+    ],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "anchorEvidence",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "shipmentId", type: "string" },
+      { name: "evidenceRoot", type: "bytes32" },
+      { name: "evidenceUri", type: "string" },
+    ],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "validateClaimRules",
+    stateMutability: "view",
+    inputs: [{ name: "shipmentId", type: "string" }],
+    outputs: [
+      { name: "claimable", type: "bool" },
+      { name: "reason", type: "string" },
+    ],
+  },
+  {
+    type: "function",
+    name: "releaseEscrow",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "shipmentId", type: "string" }],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "getShipmentSnapshot",
+    stateMutability: "view",
+    inputs: [{ name: "shipmentId", type: "string" }],
+    outputs: [
+      { name: "exists", type: "bool" },
+      { name: "status", type: "uint8" },
+      { name: "riskThresholdBps", type: "uint16" },
+      { name: "riskScoreBps", type: "uint16" },
+      { name: "latestGForceMilli", type: "uint64" },
+      { name: "tamperDetected", type: "bool" },
+      { name: "evidenceRoot", type: "bytes32" },
+      { name: "evidenceUri", type: "string" },
+      { name: "updatedAt", type: "uint64" },
+    ],
+  },
+] as const;
